@@ -9,9 +9,9 @@ body{
     display: flex;
     justify-content: center;
     background-color: #e33054;
-    font-size: 1.3em;
+    font-size: 1vw;
     height: 10vh;
-    line-height: 160%;
+    line-height: 4vh;
 }
 
 .svg{
@@ -30,6 +30,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    color: black;
 }
 
 #login:visited{
@@ -41,10 +42,9 @@ body{
 }
 
 h1{
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Mulish', sans-serif;
     letter-spacing: .5vw;
     color: #19325c;
-    text-shadow: 1px 1px #ececec;
 }
 
 #container{
