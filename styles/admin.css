@@ -78,3 +78,17 @@ h1{
     font-size: 1vw;
     line-height: 3vh;
 }
+
+#back{
+    position: absolute;
+    top: 1.2vw;
+    left: 1.2vw;
+    color: black;
+    height: 5vh;
+    width: 5vh;
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    line-height: 5.5vh;
+    text-decoration: none;
+}

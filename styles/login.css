@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+body{
+    margin: 0;
+    max-width: 100%;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    background-color: #e33054;
+    font-size: 1vw;
+    height: 10vh;
+    line-height: 4vh;
+}
+
+.svg{
+    font-family: Arial, FontAwesome;
+}
+
+h1{
+    font-family: 'Mulish', sans-serif;
+    letter-spacing: .5vw;
+    color: #19325c;
+}
+
+#container{
+    display: flex;
+}
+
+#content{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    background-color: #ececec;
+    height: 30vh;
+    width: 25vw;
+    flex-direction: column;
+}
+
+#content *{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2{
+    color: #aaaaaa;
+    margin: 0;
+    font-size: 1.3vw;
+}
+
+input{
+    border-radius: .5vw;
+    height: 3vh;
+    width: 12vw;
+    border: .2vw solid #19325c;
+    text-align: center;
+}
+
+input:focus{
+    border: 3px solid black;
+    outline-offset: .2vw;
+}
+
+.svg{
+    font-family: Arial, FontAwesome;
+}
+
+#username{
+    margin-bottom: 4vh;
+}
+
+button{
+    position: relative;
+    bottom: -2vw;
+}
+
+button{
+    height: 3vh;
+    width: 4vw;
+    font-size: 0.8vw;
+    line-height: 2.3vh;
+    background-color: #a4f2df;
+    border-radius: .3vw;
+    border: .15vw solid #e33054;
+}
+
+button:hover{
+    background-color: #94dac9;
+    border: .3wv solid #cc2b4c;
+
+}
+
+#wrong{
+    position: absolute;
+    top: 20vh;
+    left: 44.5vw;
+}
+
+#wrong h2{
+    color: red;
+}
+
+#wrong:hover{
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes shake{
+    0% { transform: skewY(-1deg); }
+    5% { transform: skewY(1deg); }
+    10% { transform: skewY(-1deg); }
+    15% { transform: skewY(1deg); }
+    20% { transform: skewY(0deg); }
+    100% { transform: skewY(0deg); }
+}
+
+#back{
+    position: absolute;
+    top: 1.2vw;
+    left: 1.2vw;
+    color: black;
+    height: 5vh;
+    width: 5vh;
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    line-height: 5.5vh;
+    text-decoration: none;
+}
