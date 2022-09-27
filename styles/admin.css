@@ -48,7 +48,6 @@ h1{
 }
 
 #container{
-    display: flex;
 }
 
 #sidebar{
@@ -91,4 +90,35 @@ h1{
     justify-content: center;
     line-height: 5.5vh;
     text-decoration: none;
+}
+
+#addProduct{
+    margin-left: 30vw;
+    margin-top: 8vh;
+}
+
+button{
+    height: 3.5vh;
+    width: 9vw;
+    font-size: 1vw;
+    line-height: 2.3vh;
+    background-color: #a4f2df;
+    border-radius: .3vw;
+    border: .15vw solid #e33054;
+}
+
+button:hover{
+    background-color: #94dac9;
+    border: .3wv solid #cc2b4c;
+
+}
+
+#adminProducts{
+    height: auto;
+    width: 80vw;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
 }
