@@ -21,6 +21,18 @@
         
         <div id="container">
            <button id="addProduct">Add product</button>
+            <div id="modalBox">
+                <div id="newProduct">
+                    <input class="svg" id="searchBar" type="text" placeholder="&#xF002  Name"/>
+                    <input class="svg" id="searchBar" type="text" placeholder="Image URL"/>
+                    <input class="svg" id="searchBar" type="text" placeholder="Keywords"/>
+                    <input class="svg" id="searchBar" type="text" placeholder="Price"/>
+                    <input class="svg half" id="searchBar" type="text" placeholder="Number of sizes"/>
+                    <input class="svg half left" id="searchBar" type="text" placeholder="Size"/>
+                    <button id="newSize">New Size</button>
+                </div>
+            </div>
+
             <div id="adminProducts">
             
             </div>
@@ -33,5 +45,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./src/data/Product.js"></script>
     <script src="./src/data/Size.js"></script>
+    <script src="../src/admin.js"></script>
     
 </html>
