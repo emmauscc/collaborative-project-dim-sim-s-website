@@ -4,13 +4,15 @@
  */
 
 
-class Product{
+class Product extends Variant{
     /**
      * Creates a product object
      * @param {String} id // unique identifier for product. eg. 123ASKDIZ2
      * @param {String} name // product name. eg. Red Heating Socks
      */
     constructor(id,name,image,keywords,price,num_available,available_sizes){
+
+        super();
         this.id = id
         this.name = name
         this.image = image
@@ -19,7 +21,13 @@ class Product{
         this.published_date = published_date
         this.num_available = num_available
         this.available_sizes = available_sizes.split(',')
+        
 
     }
+
+
+
 }
+
+
 
