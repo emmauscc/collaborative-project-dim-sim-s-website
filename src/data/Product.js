@@ -4,7 +4,7 @@
  */
 
 
-class Product extends Variant{
+class Product{
     /**
      * Creates a product object
      * @param {String} id // unique identifier for product. eg. 123ASKDIZ2
@@ -12,7 +12,6 @@ class Product extends Variant{
      */
     constructor(id,name,image,keywords,price,num_available,available_sizes){
 
-        super();
         this.id = id
         this.name = name
         this.image = image

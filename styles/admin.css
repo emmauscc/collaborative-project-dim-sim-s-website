@@ -176,3 +176,17 @@ button:hover{
 .sizes{
     width:10vw;
 }
+
+.sizeData{
+    border: 1px solid black;
+}
+
+
+.sizeData{
+    
+    float:left;
+}
+
+#inputSizes{
+    width:10vw;
+}
