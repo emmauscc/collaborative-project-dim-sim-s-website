@@ -1,17 +1,24 @@
 /**
- * Represents a size object
+ * Represents a variant object
  */
 
-class Size{
+class Variant{
     /**
-     * Creates a size oject
-     * @param {String} size_name // size_name eg. SIZE 8
-     * @param {String} size_id  // size ig eg. AS123AS
-     * @param {Boolean} size_availability  // size_availity eg. True
+     * Creates a variant oject
+     * @param {String} variant_name // variant_name eg. variant 8
+     * @param {String} variant_id  // variant ig eg. AS123AS
+     * @param {String} variant_availability //  
      */
-    constructor(size_value,size_id,size_availability){
-        this.size_availability = size_availability
-        this.size_id = size_id
-        this.size_value = size_value
+    constructor(variant_value,variant_id,variant_availability){
+        this.variant_id = variant_id
+        this.variant_value = variant_value
+        this.variant_availability = variant_availability
+        
+    }
+
+
+    generate_variant_id = () => {
+        let x  = ''
+        return x
     }
 }
