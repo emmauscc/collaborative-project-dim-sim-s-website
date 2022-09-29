@@ -10,24 +10,25 @@ class Product{
      * @param {String} id // unique identifier for product. eg. 123ASKDIZ2
      * @param {String} name // product name. eg. Red Heating Socks
      */
-    constructor(id,name,image,keywords,price){
+    constructor(id,name,image,keywords,price,release_date){
         this.id = id
         this.name = name
         this.image = image
         this.keywords = keywords.split(',')
         this.price = price
-        this.published_date = published_date
-        this.num_available = 0
-        this.available_sizes = variants.length
+        this.release_date = release_date
         this.variants = []
+        this.num_available = 0
+    }
+
+    addVariant(variant_name,variant_id,variant_value,variant_availability,this){
+
+        this.variants.push(new Variant(variant_name,variant_value,variant_id,variant_availability))
+        this.num_available = this.num_available + variant_availability
 
     }
 
-    newVariant(variant_value,variant_id,variant_availability,this){
-
-        this.variants.push(new Variant(variant_value,variant_id,variant_availability))
-
-    }
+    
 
 
 
