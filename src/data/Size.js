@@ -9,11 +9,11 @@ class Variant{
      * @param {String} variant_id  // variant ig eg. AS123AS
      * @param {String} variant_availability //  
      */
-    constructor(variant_value,variant_id,variant_availability){
+    constructor(variant_value,variant_id,variant_availability,product){
         this.variant_id = variant_id
         this.variant_value = variant_value
         this.variant_availability = variant_availability
-        
+        this.product = product
     }
 
 
