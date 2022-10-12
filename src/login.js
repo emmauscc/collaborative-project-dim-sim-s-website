@@ -1,3 +1,10 @@
+let password = document.getElementById("password");
+password.onkeyup = function(e){
+    if(e.keyCode == 13){
+       checkDetails();
+    }
+}
+
 function checkDetails(){
     
     $("#wrong").empty();
