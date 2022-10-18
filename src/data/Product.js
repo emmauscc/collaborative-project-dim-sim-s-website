@@ -10,7 +10,10 @@ class Product{
      * @param {String} id // unique identifier for product. eg. 123ASKDIZ2
      * @param {String} name // product name. eg. Red Heating Socks
      */
-    constructor(id,name,image,keywords,price,release_date){
+
+
+    constructor(id,name,image,keywords,price,num_available,available_sizes){
+
         this.id = id
         this.name = name
         this.image = image

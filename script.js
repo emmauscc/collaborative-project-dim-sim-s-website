@@ -1,6 +1,9 @@
 
 
+var items = [new Product("0001","Test Product",null,"test, product",69.99)]
 
+
+items[0].variants.push(new Variant())
 
 
 

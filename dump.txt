@@ -1,0 +1,7 @@
+<input class="svg" class="searchBar" type="text" placeholder="&#xF002  Name"/>
+                    <input class="svg" class="searchBar" type="text" placeholder="Image URL"/>
+                    <input class="svg" class="searchBar" type="text" placeholder="Keywords"/>
+                    <input class="svg" class="searchBar" type="text" placeholder="Price"/>
+                    <input class="svg half" class="searchBar" type="text" placeholder="Size Stock"/>
+                    <input class="svg half left" class="searchBar" type="text" id="sizeSearchBar" placeholder="Size"/>
+                    <button id="newSize">New Size</button>
