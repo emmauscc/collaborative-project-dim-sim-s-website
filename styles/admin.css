@@ -104,8 +104,15 @@ input{
 }
 
 #addProduct{
-    margin-left: 30vw;
-    margin-top: 8vh;
+    position: absolute;
+    top:43vw;
+    left: 56.2vw;
+    background-color: #e33054;
+    border-radius: 1vw;
+    border: 1px solid #e33054;
+    color:white;
+    font-weight:bold;
+    height:2vw;
 }
 
 #add_product{
