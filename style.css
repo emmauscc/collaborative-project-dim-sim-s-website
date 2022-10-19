@@ -120,6 +120,9 @@ h1{
 input[type="checkbox"]{
     transition: box-shadow .6s;
     background: lightgrey;
+    height: .5vw;
+    width: .5vw;
+    margin-top: .45vh;
 }
 
 input[type="checkbox"]:checked{
