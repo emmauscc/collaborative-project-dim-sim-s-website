@@ -61,5 +61,10 @@ addSize = () => {
 
   
 }
+
+
+addProduct = () => {
+  $()
+}
 document.getElementById('addSize').addEventListener('click',addSize)
 
