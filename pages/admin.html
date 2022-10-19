@@ -20,31 +20,42 @@
         <a id="back" class="svg" href="../index.html" title="Back">&#xF359</a>
         
         <div id="container">
-           <button id="addProduct">Add product</button>
-            <div id="modalBox">
-                <div id="newProduct">
-                    <input class="searchBar" type="text" placeholder="Name">
-                    <br>
-                    <input class="searchBar" id="imageUrl" type="text" placeholder="Image URL"/>
-                    <input class="searchBar" id="keywords" type="text" placeholder="Keywords">
-                    <br>
-                    <input class="searchBar" id="price" type="number" placeholder="Price">
-                    <br>
-                    <input class="sizes"  id="sizeValue" type="text" placeholder="Size Name">
-                    <input class="sizes"  id="sizeStock" type="number" placeholder="Size stock" min="0">
-                    <button id="addSize">Add size</button>
-                    <div id="inputSizes">
-                       
+            <button id='add_product'>ADD PRODUCT</button>
+            <div id="myModal" class="modal">
 
-                    </div>
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close"></span>
 
-                    
+                  <div class="productInformation">
+                      <input placeholder="Name"></input>
+
+                      <input placeholder="Image"></input>
+                      <input placeholder="Price"></input>
+
+                      <input placeholder="Keywords"></input>
+                      <input placeholder="Sizes"></input> 
+
+
+
+                  </div>
                 </div>
+              
             </div>
-
-            <div id="adminProducts">
-            
-            </div>
+            <div class="table">
+                <table class="products">
+                  <thead>
+                    <tr>
+                      <th scope="col" id="num">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Sizes</th>
+                      <th scope="col">Total stock</th>
+                      <th scope="col">Actions</th>
+                    </tr>                   
+                  </thead>
+                </table>
+              </div>
+           
     
         </div>
         
