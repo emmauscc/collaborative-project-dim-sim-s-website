@@ -64,7 +64,11 @@ addSize = () => {
 
 
 addProduct = () => {
-  $()
+  let product_name = $('#productNameInput')[0].value
+  let product_image = $('#productImageInput')[0].value
+  let price = $('#productPriceInput')[0].value
+  let keywords = $('keywordsInput')[0].value
+  let sizes = 
 }
 document.getElementById('addSize').addEventListener('click',addSize)
 
