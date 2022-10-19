@@ -21,29 +21,52 @@ class FireBaseHandler{
     }
 
 
-    start_firebase = async () => {
+    start_firebase = () => {
         this.app = firebase.initializeApp(firebaseConfig)
 
     }
 
 
-    get_all_data = async () => {
-
+    remove_specific_product = async (product_id) => {
+        let k = firebase.database().ref('data/products/'+product_id)
+        k.remove();
     }
 
 
-    get_specific_product = async (product_id) => {
-        
-        let product_info = firebase.database().ref('data/products/'+product_id)
-        product_info.on('value', snapshot => {
-            var data = snapshot.val()
-            return data
-        })
-
+    get_all_data = () => {
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                let product_info = firebase.database().ref('data/products')
+                product_info.on('value',snapshot => {
+                    var data = snapshot.val()
+                    resolve(data)
+                })
+            },1)
+        }).then((result) => {
+            return result
+        }) 
     }
 
 
-    add_new_product = async (product) => {
+    get_specific_product = (product_id) => {
+
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                let product_info = firebase.database().ref('data/products/'+product_id)
+                product_info.on('value',snapshot => {
+                    var data = snapshot.val()
+                    resolve(data)
+                })
+            },1)
+        }).then((result) => {
+            return result
+        }) 
+    }
+
+
+
+
+    add_new_product = (product) => {
         firebase.database().ref('data/products/'+product.id).set(product)
     }
 }
