@@ -23,3 +23,43 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
+getCurrentSizes = () => {
+  let sizes = $('.size')
+  var available_sizes = []
+  sizes.each((index, size) => {
+    available_sizes.push(String(size.getElementsByClassName('sizeButton')[0].innerHTML).split('-')[0].trim())
+  })
+  return available_sizes
+}
+
+
+removeSize = (element) => {
+  $(element).parent().remove()
+}
+addSize = () => {
+  let size_value = $('#sizeValue')[0].value
+  let size_stock = $("#sizeStock")[0].value
+  let existing_values = getCurrentSizes()
+
+
+  if(size_value.length == 0 || size_stock.length == 0){
+    alert('Size value and stock must be filled')
+    return false
+  }
+
+  if(existing_values.includes(size_value)){
+    alert('Size already exists!')
+    return false
+  }
+
+  $('.addedSizes').append(`<div class="size">
+  <button class="sizeButton" onclick="removeSize(this)">${size_value} - ${size_stock}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#10006;</button>
+</div>`)
+
+  
+}
+document.getElementById('addSize').addEventListener('click',addSize)
+

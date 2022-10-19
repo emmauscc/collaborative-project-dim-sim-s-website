@@ -24,7 +24,7 @@ class Product{
         this.num_available = 0
     }
 
-    addVariant(variant_name,variant_id,variant_value,variant_availability,this){
+    addVariant(variant_name,variant_id,variant_value,variant_availability){
 
         this.variants.push(new Variant(variant_name,variant_value,variant_id,variant_availability))
         this.num_available = this.num_available + variant_availability

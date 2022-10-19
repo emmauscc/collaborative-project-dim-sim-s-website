@@ -108,7 +108,7 @@ input{
     margin-top: 8vh;
 }
 
-button{
+#add_product{
     height: 5.5vh;
     width: 9vw;
     position:relative;
@@ -265,6 +265,7 @@ table {
     padding: 20px;
     border: 1px solid #888;
     width: 30vw; /* Could be more or less, depending on screen size */
+    height:30vw;
   }
   
   /* The Close Button */
@@ -288,5 +289,43 @@ table {
 .productInformation input{
     border-radius: .2vw;
     width:10vw;
-    color:lightgrey;
+    font-size: .7vw;
+    color:black;
+    border: 2px solid lightgrey;
+}
+
+
+.productInformation #addSize {
+    height: 3.5vh;
+    width: 6vw;
+    position:relative;
+    font-size: .7vw;
+    background-color: #e33054;
+    border-radius: 1vw;
+    border: 1px solid #e33054;
+    color:white;
+    font-weight:bold;
+    margin-left: 2vw;
+}
+
+
+.size{
+    padding-top: 1vw;
+    padding-left: .5vw;
+    float:left;
+}
+
+
+.sizeButton{
+    border: 1px solid blue;
+    color:white;
+    background-color: blue;
+    border-radius: 1vw;
+    font-weight: bold;
+
+}
+
+.sizeButton:hover{
+    background-color:red;
+    border: 1px solid red;
 }
