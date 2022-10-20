@@ -96,6 +96,7 @@ readAllData();
 
 
 function generateModal(clickedID){
+  $(".modal-content").empty();
   modal.style.display = "block"
 
   console.log(clickedID)
@@ -117,7 +118,23 @@ function generateModal(clickedID){
             <div class="Available"><b>${products[clickedID]['num_available']}</b> More in stock!</div>
             <div class="Price">${products[clickedID]['price']}</div>
           </div>
-        </div
+
+        <div class="bottomLeftContainer">           
+          <div class="Size">
+            <label for="size">Product Size:</label>
+            <select name="size" id="size">
+              <option value="small">Small - 5 in stock</option>
+              <option value="medium">Medium - 10 in stock</option>
+              <option value="extra-medium">Extra Medium - 69 in stock</option>
+              <option value="large">Large - 420 in stock</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bottomRightContainer">
+          <button class="CartButton" type="button">Add to Cart</button>
+
+        </div>
   `)
 }
 
