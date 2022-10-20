@@ -123,10 +123,6 @@ function generateModal(clickedID){
           <div class="Size">
             <label for="size">Product Size:</label>
             <select name="size" id="size">
-              <option value="small">Small - 5 in stock</option>
-              <option value="medium">Medium - 10 in stock</option>
-              <option value="extra-medium">Extra Medium - 69 in stock</option>
-              <option value="large">Large - 420 in stock</option>
             </select>
           </div>
         </div>
@@ -135,7 +131,17 @@ function generateModal(clickedID){
           <button class="CartButton" type="button">Add to Cart</button>
 
         </div>
+
   `)
+
+  for(var i=0; i<products[clickedID]['variants'].length; i++){
+    console.log(products[clickedID]['variants'][i]['value'])
+    $("#size").append(`
+    
+    <option value="${products[clickedID]['variants'][i]['value']}">${products[clickedID]['variants'][i]['value']} - ${products[clickedID]['variants'][i]['availability']} in stock</option>
+      
+    `)
+  }
 }
 
 
