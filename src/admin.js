@@ -71,7 +71,10 @@ addProduct = () => {
   let product_name = $('#productNameInput')[0].value
   let product_image = $('#productImageInput')[0].value
   let price = $('#productPriceInput')[0].value
+  let brand = $('#productBrandInput')[0].value
+
   let keywords = $('#keywordsInput')[0].value
+
   let sizes = this.getCurrentSizes()
 
 
@@ -81,7 +84,7 @@ addProduct = () => {
   }
 
   
-  let product = new Product(product_name,product_image,keywords,price)
+  let product = new Product(product_name,product_image,keywords,price,brand)
   sizes.forEach(size => {
     let size_value = size.split('-')[0].trim()
     let size_stock = size.split('-')[1].trim()
