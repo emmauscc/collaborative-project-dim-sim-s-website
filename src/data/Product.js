@@ -12,8 +12,9 @@ class Product{
      */
 
 
-    constructor(name,image,keywords,price){
+    constructor(name,image,keywords,price,brand){
 
+        this.brand = brand
         
         this.name = name
         this.id = this.generate_id()
@@ -34,7 +35,7 @@ class Product{
         this.variants.forEach(variant => {
             k.push(variant.return_variables_as_object())
         })
-        return {name: this.name, id: this.id, image: this.image, keywords: this.keywords, price: this.price, release_date: this.release_date, variants: k, num_available: this.num_available}
+        return {brand:this.brand,name: this.name, id: this.id, image: this.image, keywords: this.keywords, price: this.price, release_date: this.release_date, variants: k, num_available: this.num_available}
     }
 
     addVariant(variant_value,variant_stock){
