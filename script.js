@@ -19,7 +19,7 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-/**
+
 const firebaseConfig2 = {
   apiKey: "AIzaSyD8THmhiu-yyHXJZVy2BbsL1Vvep7cqds8",
   authDomain: "dim-sim-s-website.firebaseapp.com",
@@ -33,7 +33,27 @@ const firebaseConfig2 = {
 
 firebase.initializeApp(firebaseConfig2);
 
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    $(".productInformation").remove();
+  }
+}
 
 
 function readAllData(){
@@ -82,12 +102,10 @@ function generateModal(clickedID){
 
   console.log(products)
 
-  $("body").append(`
-    <div id="Modal${clickedID}" class="modal">
-      <div class="modal-content">
-        <span class="close"></span>
+  $(".modal-content").append(`
+    
 
-        <div class="productInformation">
+        <div class="productInformation" product_id="${clickedID}">
           <img class="Image" src="${products[clickedID]['image']}">
           <div class="leftContainer">
             <div class="Name">${products[clickedID]['name']} -</div>
@@ -99,47 +117,23 @@ function generateModal(clickedID){
             <div class="Available"><b>${products[clickedID]['num_available']}</b> More in stock!</div>
             <div class="Price">${products[clickedID]['price']}</div>
           </div>
+        </div
   `)
 }
 
 
-var modal = document.getElementById("Modal"+clickedID);
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 // var items = [new Product("0001","Test Product",null,"test, product",69.99)]
 
 
 // items[0].variants.push(new Variant())
 
-*/
 
 
-var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
+/**
 class Structure{
     constructor(){
         this.firebase_handler = new FireBaseHandler()
@@ -149,6 +143,10 @@ class Structure{
 
 
 
+
+    }
+
+    function_name = async function(){
 
     }
 
@@ -181,3 +179,5 @@ class Structure{
 
 
 let k = new Structure()
+
+*/
