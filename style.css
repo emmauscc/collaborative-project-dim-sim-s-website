@@ -137,6 +137,7 @@ input[type="checkbox"]:checked{
     margin-left: 2vw;
     margin-top: 2vw;
     float: left;
+    cursor: pointer;
 }
 
 .productImg{
@@ -144,7 +145,7 @@ input[type="checkbox"]:checked{
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    max-height: 70%;
+    max-height: 50%;
 }
 
 .product *{
@@ -197,17 +198,77 @@ input[type="checkbox"]:checked{
     max-height: 30vh;
 }
 
+.leftContainer{
+    float: left;
+    width: 68%;
+    border: 1px solid black;
+}
+
+.rightContainer{
+    float: right;
+    width: 30%;
+    border: 1px solid black;
+}
+
 .Name{
     font-size: 2vw;
+    float: left;
 }
 
 .Brand{
     font-size: 2vw;
+    margin-left: 0.4vw;
+    float: left;
+}
+
+.ReleaseDate{
+    font-size: 1.5vw;
+    width: 100%;
+    float:right;
 }
 
 .Available{
-    float: right;
-    color: red;
     font-style: italic;
+    color: #e33054;
+    font-size: 1.5vw;
+    float: right;
+}
+
+.Price{
+    float: right;
+    font-size: 2vw;
+}
+
+.bottomLeftContainer{
+    margin-top: 15vh;
+    border: 1px solid black;
+    width: 60%;
+    float: left;
+}
+
+.Size{
     font-size: 1vw;
+}
+
+.bottomRightContainer{
+    margin-top: 15vh;
+    width: 30%;
+    float: right;
+    border: 1px solid black;
+}
+
+.CartButton{
+    border: none;
+    cursor: pointer;
+    background-color: rgba(170,170,170, 0.5);
+    width: 60%;
+    float: right;
+    height: 2.5vh;
+    border-radius: 0.3vw;
+    font-size: 1vw;
+}
+
+.CartButton:hover{
+    background-color: #aaaaaa;
+    border-radius: 0.5vw;
 }
