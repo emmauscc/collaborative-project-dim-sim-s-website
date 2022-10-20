@@ -59,8 +59,9 @@ h1{
 
 #productContainer{
     height: 90vh;
-    width: 80vw;
-    float: left;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #ececec;
 }
 
@@ -129,3 +130,84 @@ input[type="checkbox"]:checked{
     box-shadow: inset 0 0 0 5px #e33054;
 }
 
+.product{
+    height: 30vh;
+    width: 15vw;
+    border: 1px solid black;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    float: left;
+}
+
+.productImg{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 70%;
+}
+
+.product *{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40vw; /* Could be more or less, depending on screen size */
+    height:30vw;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.Image{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 30vh;
+}
+
+.Name{
+    font-size: 2vw;
+}
+
+.Brand{
+    font-size: 2vw;
+}
+
+.Available{
+    float: right;
+    color: red;
+    font-style: italic;
+    font-size: 1vw;
+}
