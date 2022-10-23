@@ -23,25 +23,25 @@
             <div id="sidebar">
                 <input class="svg item" id="searchBar" type="text" placeholder="&#xF002  Search" />
                 <button type="button" class="collapsible item svg">Sort By &#xF0D7</button>
-                    <div class="content">
+                    <div id="sortBy" class="content">
                         <div class="options">
-                            <input type="radio" id="1" name="drone" value="New">
+                            <input type="radio" id="1" name="New" value="New">
                             <label for="1">New</label>
                         </div>
                       
                         <div class="options">
-                            <input type="radio" id="2" name="drone" value="Price">
+                            <input type="radio" id="2" name="PriceL" value="PriceL">
                             <label for="2">Price (Low to High)</label>
                         </div>
 
                         <div class="options">
-                            <input type="radio" id="3" name="drone" value="Price">
+                            <input type="radio" id="3" name="PriceH" value="PriceH">
                             <label for="3">Price (High to Low)</label>
                         </div>
 
                         <div class="options">
-                            <input type="radio" id="4" name="drone" value="Price">
-                            <label for="4">Price</label>
+                            <input type="radio" id="4" name="Name" value="Name">
+                            <label for="4">Name (A to Z)</label>
                         </div>
                     </div>
 
@@ -80,6 +80,8 @@
                             <label for="10">Bevan</label>
                         </div>
                     </div>
+
+                    <button id="goButton" type="button" onclick="doFilters()">Go</button>
             </div>
 
             
@@ -93,16 +95,16 @@
                   
                 </div>
     
-                <div class="product" onclick="generateModal(this)">
+                <!--<div class="product" onclick="generateModal(this.id)">
                     <img class="productImg" src="https://images.footlocker.com/is/image/EBFL2/D6215016_a1?wid=520&hei=520&fmt=png-alpha">
                     <div class="productName">Jordan 1 Mid</div>
                     <div class="productBrand">Nike</div>
                     <div class="productPrice">$150</div>
-                </div>
+                </div>-->
 
-                <div id="myModal" class="modal">
+                <!--<div id="myModal" class="modal">
 
-                <!-- Modal content 
+                Modal content 
                 <div class="modal-content">
                   <span class="close"></span>
 
@@ -155,6 +157,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@latest/underscore-umd-min.js"></script>
     <script src='./src/FirebaseHandler.js'></script>
     <script src="./src/data/Product.js"></script>
     <script src="./src/data/Size.js"></script>

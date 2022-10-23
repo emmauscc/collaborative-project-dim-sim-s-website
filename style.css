@@ -272,3 +272,21 @@ input[type="checkbox"]:checked{
     background-color: #aaaaaa;
     border-radius: 0.5vw;
 }
+
+#goButton{
+    float: right;
+    margin-right: 3.5vw;
+    margin-top: 3vh;
+    width: 10%;
+    text-align: center;
+    justify-content: center;
+    height: 3vh;
+    line-height: 2.5vh;
+    font-size: 1vw;
+    color: 	#e33054;
+}
+
+#goButton:hover{
+    background-color: #ececec;
+    border: 2px solid black;
+}
