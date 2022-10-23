@@ -4,6 +4,8 @@ let clickedID = "";
 let date = "";
 let newdate = "";
 let filteredProducts = [];
+let brandArray = [];
+let uniqueBrands = [];
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -58,7 +60,7 @@ window.onclick = function(event) {
 
 
 function readAllData(){
-  var getUserId = firebase.database().ref();
+    var getUserId = firebase.database().ref();
 
     getUserId.on('value', (snapshot) => {
     const data = snapshot.val();
@@ -69,18 +71,19 @@ function readAllData(){
     console.log(products)
 
 
-    
-    
-    
+
+
     for(var i=0; i<Object.keys(products).length; i++){
 
         currentID = products[Object.keys(products)[i]]['id']
         console.log(currentID)
 
+        brandArray.push(products[currentID]['brand'])
+
         let date = JSON.stringify(new Date(products[currentID]['release_date']))
         newdate = date.substr(0, date.indexOf("T")).slice(1)
         $("#productContainer").append(`
-        
+
         <div class="product" onclick="generateModal(this.id)" id="${currentID}">
           <img class="productImg" src="${products[currentID]['image']}">
           <div class="productName">${products[currentID]['name']}</div>
@@ -88,16 +91,21 @@ function readAllData(){
           <div class="productPrice">$${products[currentID]['price']}</div>
         </div>
 
-        
       `)
     }
+    console.log(brandArray)
   
   })
 }
 readAllData();
 
 function doFilters(){
-
+    $("#brandContainer").append(`
+    <div class="options">
+        <input type="checkbox" id="5">
+        <label for="5">Sony</label>
+    </div>
+    `)
 
     console.log($("#searchBar").val())
     const productsArray = Object.values(products)
