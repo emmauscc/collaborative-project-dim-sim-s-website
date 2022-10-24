@@ -112,6 +112,8 @@ function readAllData(){
 readAllData();
 
 function doFilters(){
+    filteredProducts = [];
+    brandSelected = [];
 
     const productsArray = Object.values(products)
 
@@ -131,8 +133,10 @@ function doFilters(){
         }
     }
 
+    
     if(brandSelected.length > 0){
         filteredProducts = filteredProducts.filter(searchFilter);
+    
     }else{
         filteredProducts = productsArray.filter(searchFilter)
 
@@ -152,28 +156,50 @@ function doFilters(){
     }
 
     
-
-    
     console.log(filteredProducts)
+
+    if(filteredProducts.length > 0){
+        if($('input[name="radios"]:checked').val() == "New"){
+            console.log(_.sortBy(filteredProducts, ['release_date']))
+            filteredProducts = _.sortBy(filteredProducts, ['release_date'])
     
-    if($('input[name="radios"]:checked').val() == "New"){
-        console.log(_.sortBy(productsArray, ['release_date']))
-        filteredProducts = _.sortBy(productsArray, ['release_date'])
-
-    }else if($('input[name="radios"]:checked').val() == "PriceL"){
-
-        productsArray.forEach(u => u.price*=1)
-        filteredProducts = _.sortBy(productsArray, ['price'])
-
-    }else if($('input[name="radios"]:checked').val() == "PriceH"){
-
-        productsArray.forEach(u => u.price*=1)
-        filteredProducts = _.sortBy(productsArray, ['price']).reverse();
+        }else if($('input[name="radios"]:checked').val() == "PriceL"){
     
-    }else if($('input[name="radios"]:checked').val() == "Name"){
+            filteredProducts.forEach(u => u.price*=1)
+            filteredProducts = _.sortBy(filteredProducts, ['price'])
+    
+        }else if($('input[name="radios"]:checked').val() == "PriceH"){
+    
+            filteredProducts.forEach(u => u.price*=1)
+            filteredProducts = _.sortBy(filteredProducts, ['price']).reverse();
+        
+        }else if($('input[name="radios"]:checked').val() == "Name"){
+    
+            filteredProducts = _.sortBy(filteredProducts, ['name'])
+        }
+    }else{
+        if($('input[name="radios"]:checked').val() == "New"){
+            console.log(_.sortBy(productsArray, ['release_date']))
+            filteredProducts = _.sortBy(productsArray, ['release_date'])
+    
+        }else if($('input[name="radios"]:checked').val() == "PriceL"){
+    
+            productsArray.forEach(u => u.price*=1)
+            filteredProducts = _.sortBy(productsArray, ['price'])
+    
+        }else if($('input[name="radios"]:checked').val() == "PriceH"){
+    
+            productsArray.forEach(u => u.price*=1)
+            filteredProducts = _.sortBy(productsArray, ['price']).reverse();
+        
+        }else if($('input[name="radios"]:checked').val() == "Name"){
+    
+            filteredProducts = _.sortBy(productsArray, ['name'])
+        }
 
-        filteredProducts = _.sortBy(productsArray, ['name'])
     }
+    
+    
 
     
     if(filteredProducts.length > 0){
