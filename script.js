@@ -6,6 +6,8 @@ let newdate = "";
 let filteredProducts = [];
 let brandArray = [];
 let uniqueBrands = [];
+let brandSelected = [];
+let newarray = [];
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -94,86 +96,173 @@ function readAllData(){
       `)
     }
     console.log(brandArray)
+    uniqueBrands = [...new Set(brandArray)]
+    console.log(uniqueBrands)
+    for(var i=0; i<uniqueBrands.length; i++){
+        $("#brandContainer").append(`
+            <div class="options">
+                <input type="checkbox" name="brands" id="${uniqueBrands[i]}">
+                <label for="${uniqueBrands[i]}">${uniqueBrands[i]}</label>
+            </div>
+        `)
+    }
   
   })
 }
 readAllData();
 
 function doFilters(){
-    $("#brandContainer").append(`
-    <div class="options">
-        <input type="checkbox" id="5">
-        <label for="5">Sony</label>
-    </div>
-    `)
 
-    console.log($("#searchBar").val())
     const productsArray = Object.values(products)
-    console.log(productsArray)
 
-    console.log(_.sortBy(productsArray, ['release_date']))
-    filteredProducts = productsArray.filter(searchFilter);
 
-    function searchFilter(productsArray){
-        if($("#searchBar") != ""){
-            return productsArray['name'].toLowerCase().includes($("#searchBar").val())
+    $("input:checkbox[name='brands']:checked").each(function(){
+        let checkBrand = $(this)[0]['id']
+        brandSelected.push(checkBrand);
+    });
+    console.log(brandSelected)
+
+    for(var i=0; i<productsArray.length; i++){
+        for(var j=0; j<brandSelected.length; j++){
+            console.log(productsArray[i]['brand'].indexOf(brandSelected[j]))
+            if(productsArray[i]['brand'] == brandSelected[j]){
+                filteredProducts.push(productsArray[i])
+            }
         }
     }
 
+    if(brandSelected.length > 0){
+        filteredProducts = filteredProducts.filter(searchFilter);
+    }else{
+        filteredProducts = productsArray.filter(searchFilter)
+
+    }
+
+    if(filteredProducts.length == 0){
+        $("#productContainer").empty();
+    }
     
-    if($('input[name="New"]:checked').val() == "New"){
+
+    function searchFilter(productsArray){
+        if($("#searchBar") != ""){
+            console.log(productsArray['name'].toLowerCase().includes($("#searchBar").val()))
+            return productsArray['name'].toLowerCase().includes($("#searchBar").val())
+        }
+        console.log(productsArray)
+    }
+
+    
+
+    
+    console.log(filteredProducts)
+    
+    if($('input[name="radios"]:checked').val() == "New"){
         console.log(_.sortBy(productsArray, ['release_date']))
         filteredProducts = _.sortBy(productsArray, ['release_date'])
 
-    }else if($('input[name="PriceL"]:checked').val() == "PriceL"){
+    }else if($('input[name="radios"]:checked').val() == "PriceL"){
 
         productsArray.forEach(u => u.price*=1)
         filteredProducts = _.sortBy(productsArray, ['price'])
 
-    }else if($('input[name="PriceH"]:checked').val() == "PriceH"){
+    }else if($('input[name="radios"]:checked').val() == "PriceH"){
 
         productsArray.forEach(u => u.price*=1)
         filteredProducts = _.sortBy(productsArray, ['price']).reverse();
     
-    }else if($('input[name="Name"]:checked').val() == "Name"){
+    }else if($('input[name="radios"]:checked').val() == "Name"){
 
         filteredProducts = _.sortBy(productsArray, ['name'])
     }
 
-    $("#productContainer").empty();
-   
-    for(var i=0; i<filteredProducts.length; i++){
+    
+    if(filteredProducts.length > 0){
+        $("div.product").remove();
+        console.log(filteredProducts)
+        for(var i=0; i<filteredProducts.length; i++){
 
-        currentID = i;
-        console.log(currentID)
+            currentID = i;
+            console.log(currentID)
 
-        let date = JSON.stringify(new Date(filteredProducts[currentID]['release_date']))
-        newdate = date.substr(0, date.indexOf("T")).slice(1)
-        $("#productContainer").append(`
-        
-        <div class="product" onclick="generateModal(this.id)" id="${currentID}">
-          <img class="productImg" src="${filteredProducts[currentID]['image']}">
-          <div class="productName">${filteredProducts[currentID]['name']}</div>
-          <div class="productBrand">${filteredProducts[currentID]['brand']}</div>
-          <div class="productPrice">$${filteredProducts[currentID]['price']}</div>
-        </div>
+            let date = JSON.stringify(new Date(filteredProducts[currentID]['release_date']))
+            newdate = date.substr(0, date.indexOf("T")).slice(1)
+            $("#productContainer").append(`
+            
+            <div class="product" onclick="generateModal(this.id)" id="${currentID}">
+            <img class="productImg" src="${filteredProducts[currentID]['image']}">
+            <div class="productName">${filteredProducts[currentID]['name']}</div>
+            <div class="productBrand">${filteredProducts[currentID]['brand']}</div>
+            <div class="productPrice">$${filteredProducts[currentID]['price']}</div>
+            </div>
 
-        
-      `)
+            
+        `)
     }
+    }
+    
+
+    $("#brandContainer").empty();
+    for(var i=0; i<uniqueBrands.length; i++){
+        $("#brandContainer").append(`
+            <div class="options">
+                <input type="checkbox" name="brands" id="${uniqueBrands[i]}">
+                <label for="${uniqueBrands[i]}">${uniqueBrands[i]}</label>
+            </div>
+        `)
+    }
+    
 }
 
 
 
 function generateModal(clickedID){
+    
+    console.log(clickedID)
     $(".modal-content").empty();
     modal.style.display = "block"
 
-    console.log(clickedID)
 
-    console.log(products)
+    if(filteredProducts.length > 0){
+        console.log("FILTERED PRODUCTS EXIST")
+        $(".modal-content").append(`
+    
 
-    $(".modal-content").append(`
+        <div class="productInformation" product_id="${clickedID}">
+          <img class="Image" src="${filteredProducts[clickedID]['image']}">
+          <div class="leftContainer">
+            <div class="Name">${filteredProducts[clickedID]['name']} -</div>
+            <div class="Brand">${filteredProducts[clickedID]['brand']}</div>
+            <div class="ReleaseDate">${newdate}</div>
+          </div>
+
+          <div class="rightContainer">
+            <div class="Available"><b>${filteredProducts[clickedID]['num_available']}</b> More in stock!</div>
+            <div class="Price">$${filteredProducts[clickedID]['price']}</div>
+          </div>
+
+        <div class="bottomLeftContainer">           
+          <div class="Size">
+            <label for="size">Product Size:</label>
+            <select name="size" id="size">
+            </select>
+          </div>
+        </div>
+
+        <div class="bottomRightContainer">
+          <button class="CartButton" type="button">Add to Cart</button>
+
+        </div>`)
+
+        for(var i=0; i<filteredProducts[clickedID]['variants'].length; i++){
+            console.log(filteredProducts[clickedID]['variants'][i]['value'])
+            $("#size").append(`
+            
+            <option value="${filteredProducts[clickedID]['variants'][i]['value']}">${filteredProducts[clickedID]['variants'][i]['value']} - ${filteredProducts[clickedID]['variants'][i]['availability']} in stock</option>
+            
+            `)
+        }
+    }else{
+        $(".modal-content").append(`
     
 
         <div class="productInformation" product_id="${clickedID}">
@@ -201,17 +290,19 @@ function generateModal(clickedID){
           <button class="CartButton" type="button">Add to Cart</button>
 
         </div>
-
-  `)
-
-    for(var i=0; i<products[clickedID]['variants'].length; i++){
-        console.log(products[clickedID]['variants'][i]['value'])
-        $("#size").append(`
-        
-        <option value="${products[clickedID]['variants'][i]['value']}">${products[clickedID]['variants'][i]['value']} - ${products[clickedID]['variants'][i]['availability']} in stock</option>
-        
         `)
+
+        for(var i=0; i<products[clickedID]['variants'].length; i++){
+            console.log(products[clickedID]['variants'][i]['value'])
+            $("#size").append(`
+            
+            <option value="${products[clickedID]['variants'][i]['value']}">${products[clickedID]['variants'][i]['value']} - ${products[clickedID]['variants'][i]['availability']} in stock</option>
+            
+            `)
+        }
     }
+
+    
 }
 
 

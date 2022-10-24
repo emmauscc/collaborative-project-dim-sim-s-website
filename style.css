@@ -116,6 +116,7 @@ h1{
 .options > label{
     padding-left: 5px;
     margin: 0;
+    width: 11vw;
 }
 
 input[type="checkbox"]{
