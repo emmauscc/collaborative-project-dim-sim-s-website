@@ -191,7 +191,7 @@ input[type="checkbox"]:checked{
     cursor: pointer;
   }
 
-.Image{
+.productInformation > img{
     display: flex;
     justify-content: center;
     margin-left: auto;
@@ -213,13 +213,14 @@ input[type="checkbox"]:checked{
 
 .Name{
     font-size: 2vw;
-    float: left;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
 }
 
 .Brand{
     font-size: 2vw;
-    margin-left: 0.4vw;
-    float: left;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
 }
 
 .ReleaseDate{
