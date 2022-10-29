@@ -3,12 +3,14 @@
 body{
     margin: 0;
     max-width: 100%;
+    background-color: #ececec;
+    /*background-color: rgba(164,242,223,.5);*/
 }
 
 #title{
     display: flex;
     justify-content: center;
-    background-color: #e33054;
+    background-color: #19325c;
     font-size: 1vw;
     height: 10vh;
     line-height: 4vh;
@@ -25,25 +27,25 @@ body{
     height: 5.5vh;
     width: 3vw;
     font-size: 2.3vw;
-    background-color: #e33054;
+    background-color: #19325c;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    color: black;
+    color: #e33054;
 }
 
 #login:visited{
-    color: black;
+    color: #e33054;
 }
 
 #login:hover{
-    color: black;
+    color: #e33054;
 }
 
 h1{
     font-family: 'Mulish', sans-serif;
-    letter-spacing: .5vw;
-    color: #19325c;
+    letter-spacing: .7vw;
+    color: #e33054
 }
 
 #container{
@@ -54,15 +56,22 @@ h1{
     width: 20vw;
     height: 90vh;
     float: left;
-    background-color: #aaaaaa;
+    background-color: #5e708d;
+    overflow: hidden;
 }
 
 #productContainer{
-    height: 90vh;
     width: 60vw;
     margin-left: auto;
     margin-right: auto;
-    background-color: #ececec;
+}
+
+#wrapper{
+    height: auto;
+    width: 65vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #73a99c;
 }
 
 #sidebar *{
@@ -132,13 +141,15 @@ input[type="checkbox"]:checked{
 }
 
 .product{
-    height: 30vh;
-    width: 15vw;
+    height: 320px;
+    width: 300px;
     border: 1px solid black;
     margin-left: 2vw;
     margin-top: 2vw;
     float: left;
     cursor: pointer;
+    background-color: white;
+    position: relative;
 }
 
 .productImg{
@@ -146,11 +157,44 @@ input[type="checkbox"]:checked{
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    max-height: 50%;
+    height: 180px;
 }
 
 .product *{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+
+.productName{
+    font-weight: 400;
+    font-size: 1.7em;
+    margin-bottom: 5px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.productBrand{
+    font-weight: 300;
+    font-size: 1.5em;
+    position:absolute;
+    bottom: 19px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.productPrice{
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1em;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .modal {
@@ -169,11 +213,11 @@ input[type="checkbox"]:checked{
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 5% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 3.5% auto; /* 15% from the top and centered */
+    padding: 2vw;
     border: 1px solid #888;
     width: 40vw; /* Could be more or less, depending on screen size */
-    height:30vw;
+    height:85vh;
   }
   
   /* The Close Button */
@@ -196,78 +240,86 @@ input[type="checkbox"]:checked{
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    max-height: 30vh;
+    height: 30vh;
 }
 
-.leftContainer{
-    float: left;
-    width: 68%;
-    border: 1px solid black;
+.centreContainer{
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 5vh;
 }
 
-.rightContainer{
-    float: right;
-    width: 30%;
-    border: 1px solid black;
+.secondContainer{
+    text-align: center;
 }
 
 .Name{
-    font-size: 2vw;
+    font-size: 2.2vw;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
 }
 
 .Brand{
-    font-size: 2vw;
+    font-size: 2.2vw;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
 }
 
 .ReleaseDate{
-    font-size: 1.5vw;
+    font-size: 1.8vw;
     width: 100%;
-    float:right;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    margin-bottom: 1vh;
 }
 
 .Available{
-    font-style: italic;
     color: #e33054;
-    font-size: 1.5vw;
-    float: right;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 1.7vw;
 }
 
 .Price{
-    float: right;
-    font-size: 2vw;
+    font-size: 1.7vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+
 }
 
 .bottomLeftContainer{
-    margin-top: 15vh;
-    border: 1px solid black;
-    width: 60%;
+    margin-top: 10vh;
+    width: auto;
     float: left;
 }
 
 .Size{
-    font-size: 1vw;
+    font-size: 1.2vw;
+    width: auto;
+    color: #5e708d;
 }
 
 .bottomRightContainer{
-    margin-top: 15vh;
-    width: 30%;
+    margin-top: 10vh;
     float: right;
-    border: 1px solid black;
 }
 
 .CartButton{
     border: none;
     cursor: pointer;
     background-color: rgba(170,170,170, 0.5);
-    width: 60%;
     float: right;
-    height: 2.5vh;
+    height: 3.5vh;
     border-radius: 0.3vw;
-    font-size: 1vw;
+    font-size: 1.2vw;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    color: #5e708d;
 }
 
 .CartButton:hover{
@@ -299,4 +351,19 @@ input[type="checkbox"]:checked{
     margin-left: auto;
     margin-right: auto;
     background-color: #ececec;
+}
+
+.Size > label{
+    font-size: 1.2em;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    color: #5e708d;
+}
+
+.Size > select{
+    background-color: rgba(170,170,170, 0.5);
+    font-size: 1em;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    border: 0;
 }

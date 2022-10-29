@@ -39,6 +39,7 @@ const firebaseConfig2 = {
 
 };
 
+
 firebase.initializeApp(firebaseConfig2);
 
 var modal = document.getElementById("myModal");
@@ -132,6 +133,7 @@ readAllData();
 function doFilters(){
     filteredProducts = [];
     brandSelected = [];
+    sizeSelected = [];
 
     const productsArray = Object.values(products)
 
@@ -155,9 +157,7 @@ function doFilters(){
 
     for(var i=0; i<productsArray.length; i++){
         for(var j=0; j<sizeSelected.length; j++){
-            console.log(Object.keys(productsArray[i]['variants']).length)
             for(var k=0; k<Object.keys(productsArray[i]['variants']).length; k++){
-                console.log(productsArray[i]['variants'][k]['value'].indexOf(sizeSelected[j]))
                 if(productsArray[i]['variants'][k]['value'] == sizeSelected[j]){
                     filteredProducts.push(productsArray[i])
                 }
@@ -200,6 +200,7 @@ function doFilters(){
         }
     
     }
+    filteredProducts = [...new Set(filteredProducts)]
     console.log(filteredProducts)
 
     
@@ -271,7 +272,6 @@ function doFilters(){
         for(var i=0; i<filteredProducts.length; i++){
 
             currentID = i;
-            console.log(currentID)
 
             date = JSON.stringify(new Date(filteredProducts[currentID]['release_date']))
             newdate = date.substr(0, date.indexOf("T")).slice(1)
@@ -352,15 +352,15 @@ function generateModal(clickedID){
 
         <div class="productInformation" product_id="${clickedID}">
           <img class="Image" src="${filteredProducts[clickedID]['image']}">
-          <div class="leftContainer">
+          <div class="centreContainer">
             <div class="Name">${filteredProducts[clickedID]['name']}</div>
             <div class="Brand">${filteredProducts[clickedID]['brand']}</div>
-            <div class="ReleaseDate">${newdate}</div>
+            <div class="Price">$${filteredProducts[clickedID]['price']}</div>
           </div>
 
-          <div class="rightContainer">
-            <div class="Available"><b>${filteredProducts[clickedID]['num_available']}</b> More in stock!</div>
-            <div class="Price">$${filteredProducts[clickedID]['price']}</div>
+          <div class="secondContainer">
+            <div class="ReleaseDate">Avaliable from: ${newdate}</div>
+            <div class="Available">${filteredProducts[clickedID]['num_available']} In Stock</div>
           </div>
 
         <div class="bottomLeftContainer">           
@@ -392,15 +392,15 @@ function generateModal(clickedID){
 
         <div class="productInformation" product_id="${clickedID}">
           <img class="Image" src="${products[clickedID]['image']}">
-          <div class="leftContainer">
+          <div class="centreContainer">
             <div class="Name">${products[clickedID]['name']}</div>
             <div class="Brand">${products[clickedID]['brand']}</div>
-            <div class="ReleaseDate">${newdate}</div>
+            <div class="Price">$${products[clickedID]['price']}</div>
           </div>
 
-          <div class="rightContainer">
-            <div class="Available"><b>${products[clickedID]['num_available']}</b> More in stock!</div>
-            <div class="Price">$${products[clickedID]['price']}</div>
+          <div class="secondContainer">
+            <div class="ReleaseDate">Avaliable from: ${newdate}</div>
+            <div class="Available">${products[clickedID]['num_available']} In Stock</div>
           </div>
 
         <div class="bottomLeftContainer">           
