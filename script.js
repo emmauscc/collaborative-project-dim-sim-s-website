@@ -7,7 +7,9 @@ let filteredProducts = [];
 let brandArray = [];
 let uniqueBrands = [];
 let brandSelected = [];
-let newarray = [];
+let sizeArray = [];
+let uniqueSizes = [];
+let sizeSelected = [];
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -83,6 +85,10 @@ function readAllData(){
 
         brandArray.push(products[currentID]['brand'])
 
+        for(var j=0; j<Object.keys(products[currentID]['variants']).length; j++){
+            sizeArray.push(products[currentID]['variants'][j]['value'])
+        }
+
         date = JSON.stringify(new Date(products[currentID]['release_date']))
         newdate = date.substr(0, date.indexOf("T")).slice(1)
         $("#productContainer").append(`
@@ -107,6 +113,17 @@ function readAllData(){
             </div>
         `)
     }
+
+    uniqueSizes = [...new Set(sizeArray)]
+    console.log(uniqueSizes)
+    uniqueSizes.sort();
+    for(var i=0; i<uniqueSizes.length; i++){
+        $("#sizeContainer").append(`
+        <div class="options">
+            <input type="checkbox" name="sizes" id="${uniqueSizes[i]}">
+            <label for="${uniqueSizes[i]}">${uniqueSizes[i]}</label>
+        `)
+    }
   
   })
 }
@@ -119,23 +136,76 @@ function doFilters(){
     const productsArray = Object.values(products)
 
 
+    
+
+    function searchFilter(productsArray){
+        if($("#searchBar") != ""){
+            console.log(productsArray['name'].toLowerCase().includes($("#searchBar").val()))
+            return productsArray['name'].toLowerCase().includes($("#searchBar").val())
+        }
+        console.log(productsArray)
+    }
+
+    $("input:checkbox[name='sizes']:checked").each(function(){
+        let checkSize = $(this)[0]['id']
+        sizeSelected.push(checkSize)
+    })
+    console.log(sizeSelected)
+    console.log(productsArray)
+
+    for(var i=0; i<productsArray.length; i++){
+        for(var j=0; j<sizeSelected.length; j++){
+            console.log(Object.keys(productsArray[i]['variants']).length)
+            for(var k=0; k<Object.keys(productsArray[i]['variants']).length; k++){
+                console.log(productsArray[i]['variants'][k]['value'].indexOf(sizeSelected[j]))
+                if(productsArray[i]['variants'][k]['value'] == sizeSelected[j]){
+                    filteredProducts.push(productsArray[i])
+                }
+            }
+        }
+    }
+    filteredProducts = [...new Set(filteredProducts)]
+    console.log(filteredProducts)
+
+
     $("input:checkbox[name='brands']:checked").each(function(){
         let checkBrand = $(this)[0]['id']
         brandSelected.push(checkBrand);
     });
     console.log(brandSelected)
 
-    for(var i=0; i<productsArray.length; i++){
-        for(var j=0; j<brandSelected.length; j++){
-            console.log(productsArray[i]['brand'].indexOf(brandSelected[j]))
-            if(productsArray[i]['brand'] == brandSelected[j]){
-                filteredProducts.push(productsArray[i])
+    if(sizeSelected.length > 0){
+        newarray = [...new Set(filteredProducts)]
+        console.log(newarray)
+        for(var i=0; i<newarray.length; i++){
+            for(var j=0; j<brandSelected.length; j++){
+                console.log(newarray[i]['brand'].indexOf(brandSelected[j]))
+                if(newarray[i]['brand'] == brandSelected[j]){
+                    console.log(newarray[i])
+                    filteredProducts.push(newarray[i])
+                }else{
+                    filteredProducts = [];
+                }
             }
         }
+    
+    }else{
+        for(var i=0; i<productsArray.length; i++){
+            for(var j=0; j<brandSelected.length; j++){
+                console.log(productsArray[i]['brand'].indexOf(brandSelected[j]))
+                if(productsArray[i]['brand'] == brandSelected[j]){
+                    filteredProducts.push(productsArray[i])
+                }
+            }
+        }
+    
     }
+    console.log(filteredProducts)
 
     
-    if(brandSelected.length > 0){
+
+    
+    if(brandSelected.length > 0 || sizeSelected.length > 0){
         filteredProducts = filteredProducts.filter(searchFilter);
     
     }else{
@@ -147,14 +217,6 @@ function doFilters(){
         $("#productContainer").empty();
     }
     
-
-    function searchFilter(productsArray){
-        if($("#searchBar") != ""){
-            console.log(productsArray['name'].toLowerCase().includes($("#searchBar").val()))
-            return productsArray['name'].toLowerCase().includes($("#searchBar").val())
-        }
-        console.log(productsArray)
-    }
 
     
     console.log(filteredProducts)
@@ -178,7 +240,7 @@ function doFilters(){
     
             filteredProducts = _.sortBy(filteredProducts, ['name'])
         }
-    }else{
+    }else if (filteredProducts.length < 1 && brandSelected.length < 1){
         if($('input[name="radios"]:checked').val() == "New"){
             console.log(_.sortBy(productsArray, ['release_date']))
             filteredProducts = _.sortBy(productsArray, ['release_date'])
@@ -214,26 +276,56 @@ function doFilters(){
             date = JSON.stringify(new Date(filteredProducts[currentID]['release_date']))
             newdate = date.substr(0, date.indexOf("T")).slice(1)
             $("#productContainer").append(`
-            
+
             <div class="product" onclick="generateModal(this.id)" id="${currentID}">
             <img class="productImg" src="${filteredProducts[currentID]['image']}">
             <div class="productName">${filteredProducts[currentID]['name']}</div>
             <div class="productBrand">${filteredProducts[currentID]['brand']}</div>
             <div class="productPrice">$${filteredProducts[currentID]['price']}</div>
             </div>
+            `)
+        }
+    }
 
-            
-        `)
-    }
-    }
-    
 
     $("#brandContainer").empty();
+    if(filteredProducts.length > 0){
+        brandArray = [];
+        for(var i=0; i<filteredProducts.length; i++){
+            brandArray.push(filteredProducts[i]['brand'])
+        }
+        uniqueBrands = [...new Set(brandArray)]
+        uniqueBrands.sort();
+    }
+    console.log(uniqueBrands)
+
     for(var i=0; i<uniqueBrands.length; i++){
         $("#brandContainer").append(`
             <div class="options">
                 <input type="checkbox" name="brands" id="${uniqueBrands[i]}">
                 <label for="${uniqueBrands[i]}">${uniqueBrands[i]}</label>
+            </div>
+        `)
+    }
+
+    $("#sizeContainer").empty();
+    if(filteredProducts.length> 0){
+        sizeArray = []
+        for(var i=0; i<filteredProducts.length; i++){
+            for(var j=0; j<filteredProducts[i]['variants'].length; j++){
+                sizeArray.push(filteredProducts[i]['variants'][j]['value'])
+            }
+        }
+        uniqueSizes = [...new Set(sizeArray)]
+        uniqueSizes.sort();
+    }
+    console.log(uniqueSizes)
+
+    for(var i=0; i<uniqueSizes.length; i++){
+        $("#sizeContainer").append(`
+            <div class="options">
+                <input type="checkbox" name="sizes" id="${uniqueSizes[i]}">
+                <label for="${uniqueSizes[i]}">${uniqueSizes[i]}</label>
             </div>
         `)
     }
