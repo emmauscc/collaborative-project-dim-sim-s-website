@@ -82,7 +82,7 @@ function readAllData(){
 
         brandArray.push(products[currentID]['brand'])
 
-        let date = JSON.stringify(new Date(products[currentID]['release_date']))
+        date = JSON.stringify(new Date(products[currentID]['release_date']))
         newdate = date.substr(0, date.indexOf("T")).slice(1)
         $("#productContainer").append(`
 
@@ -210,7 +210,7 @@ function doFilters(){
             currentID = i;
             console.log(currentID)
 
-            let date = JSON.stringify(new Date(filteredProducts[currentID]['release_date']))
+            date = JSON.stringify(new Date(filteredProducts[currentID]['release_date']))
             newdate = date.substr(0, date.indexOf("T")).slice(1)
             $("#productContainer").append(`
             
@@ -248,15 +248,19 @@ function generateModal(clickedID){
     modal.style.display = "block"
 
 
+
+
     if(filteredProducts.length > 0){
+        date = JSON.stringify(new Date(filteredProducts[clickedID]['release_date']))
+        newdate = date.substr(0, date.indexOf("T")).slice(1)
         console.log("FILTERED PRODUCTS EXIST")
         $(".modal-content").append(`
-    
+
 
         <div class="productInformation" product_id="${clickedID}">
           <img class="Image" src="${filteredProducts[clickedID]['image']}">
           <div class="leftContainer">
-            <div class="Name">${filteredProducts[clickedID]['name']} -</div>
+            <div class="Name">${filteredProducts[clickedID]['name']}</div>
             <div class="Brand">${filteredProducts[clickedID]['brand']}</div>
             <div class="ReleaseDate">${newdate}</div>
           </div>
@@ -288,13 +292,15 @@ function generateModal(clickedID){
             `)
         }
     }else{
+        date = JSON.stringify(new Date(products[clickedID]['release_date']))
+        newdate = date.substr(0, date.indexOf("T")).slice(1)
         $(".modal-content").append(`
     
 
         <div class="productInformation" product_id="${clickedID}">
           <img class="Image" src="${products[clickedID]['image']}">
           <div class="leftContainer">
-            <div class="Name">${products[clickedID]['name']} -</div>
+            <div class="Name">${products[clickedID]['name']}</div>
             <div class="Brand">${products[clickedID]['brand']}</div>
             <div class="ReleaseDate">${newdate}</div>
           </div>
