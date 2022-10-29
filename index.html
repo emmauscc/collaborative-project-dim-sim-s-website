@@ -22,45 +22,38 @@
         <div id="container">
             <div id="sidebar">
                 <input class="svg item" id="searchBar" type="text" placeholder="&#xF002  Search" />
+                
                 <button type="button" class="collapsible item svg">Sort By &#xF0D7</button>
-                    <div class="content">
+                    <div id="sortBy" class="content">
                         <div class="options">
-                            <input type="radio" id="1" name="drone" value="New">
-                            <label for="1">New</label>
+                            <input type="radio" id="option1" name="radios" value="New">
+                            <label for="option1">New</label>
                         </div>
                       
                         <div class="options">
-                            <input type="radio" id="2" name="drone" value="Price">
-                            <label for="2">Price (Low to High)</label>
+                            <input type="radio" id="option2" name="radios" value="PriceL">
+                            <label for="option2">Price (Low to High)</label>
                         </div>
 
                         <div class="options">
-                            <input type="radio" id="3" name="drone" value="Price">
-                            <label for="3">Price (High to Low)</label>
+                            <input type="radio" id="option3" name="radios" value="PriceH">
+                            <label for="option3">Price (High to Low)</label>
                         </div>
 
                         <div class="options">
-                            <input type="radio" id="4" name="drone" value="Price">
-                            <label for="4">Price</label>
+                            <input type="radio" id="option4" name="radios" value="Name">
+                            <label for="option4">Name (A to Z)</label>
                         </div>
                     </div>
 
                     <button type="button" class="collapsible item svg">Brands &#xF0D7</button>
-                    <div class="content">
-                        <div class="options">
+                    <div class="content" id="brandContainer">
+                        <!--<div class="options">
                             <input type="checkbox" id="5">
                             <label for="5">Sony</label>
-                        </div>
+                        </div>-->
                         
-                        <div class="options">
-                            <input type="checkbox" id="6">
-                            <label for="6">Adidas</label>
-                        </div>
-
-                        <div class="options">
-                            <input type="checkbox" id="7">
-                            <label for="7">SNKRLab</label>
-                        </div>
+                        
                     </div>
 
                     <button type="button" class="collapsible item svg">Sizes &#xF0D7</button>
@@ -80,6 +73,8 @@
                             <label for="10">Bevan</label>
                         </div>
                     </div>
+
+                    <button id="goButton" type="button" onclick="doFilters()">Go</button>
             </div>
 
             
@@ -93,16 +88,16 @@
                   
                 </div>
     
-                <div class="product" onclick="generateModal(this)">
+                <!--<div class="product" onclick="generateModal(this.id)">
                     <img class="productImg" src="https://images.footlocker.com/is/image/EBFL2/D6215016_a1?wid=520&hei=520&fmt=png-alpha">
                     <div class="productName">Jordan 1 Mid</div>
                     <div class="productBrand">Nike</div>
                     <div class="productPrice">$150</div>
-                </div>
+                </div>-->
 
-                <div id="myModal" class="modal">
+                <!--<div id="myModal" class="modal">
 
-                <!-- Modal content 
+                Modal content 
                 <div class="modal-content">
                   <span class="close"></span>
 
@@ -155,6 +150,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/underscore@latest/underscore-umd-min.js"></script>
     <script src='./src/FirebaseHandler.js'></script>
     <script src="./src/data/Product.js"></script>
     <script src="./src/data/Size.js"></script>

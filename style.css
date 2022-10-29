@@ -116,6 +116,7 @@ h1{
 .options > label{
     padding-left: 5px;
     margin: 0;
+    width: 11vw;
 }
 
 input[type="checkbox"]{
@@ -271,4 +272,30 @@ input[type="checkbox"]:checked{
 .CartButton:hover{
     background-color: #aaaaaa;
     border-radius: 0.5vw;
+}
+
+#goButton{
+    float: right;
+    margin-right: 3.5vw;
+    margin-top: 3vh;
+    width: 10%;
+    text-align: center;
+    justify-content: center;
+    height: 3vh;
+    line-height: 2.5vh;
+    font-size: 1vw;
+    color: 	#e33054;
+}
+
+#goButton:hover{
+    background-color: #ececec;
+    border: 2px solid black;
+}
+
+#checkout{
+    height: 90vh;
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ececec;
 }

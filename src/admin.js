@@ -106,7 +106,6 @@ document.getElementById('addSize').addEventListener('click',addSize)
 
 
 
-
 class Structure{
   constructor(){
     this.on_page_load()
