@@ -80,6 +80,19 @@ h1{
     margin-right: auto;
 }
 
+#sidebar > input{
+    border-radius: 10px;
+    border: 0;
+}
+
+#sidebar > .collapsible{
+    border-radius: 10px 10px 0 0;
+}
+
+#sidebar > .content{
+    border-radius: 0 0 10px 10px;
+}
+
 #searchBar{
     margin-top: 3vh;
     width: 13vw;
@@ -150,6 +163,7 @@ input[type="checkbox"]:checked{
     cursor: pointer;
     background-color: white;
     position: relative;
+    border-radius: 15px;
 }
 
 .productImg{
@@ -209,7 +223,6 @@ input[type="checkbox"]:checked{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     overflow: hidden;
-
   }
   
   .modal-content {
@@ -220,6 +233,8 @@ input[type="checkbox"]:checked{
     width: 40vw; /* Could be more or less, depending on screen size */
     height:80vh;
     overflow: hidden;
+    border-radius: 40px;
+
   }
   
   /* The Close Button */
@@ -340,11 +355,13 @@ input[type="checkbox"]:checked{
     line-height: 2.5vh;
     font-size: 1vw;
     color: 	#e33054;
+    border-radius: 5px;
 }
 
 #goButton:hover{
     background-color: #ececec;
     border: 2px solid black;
+    cursor: pointer;
 }
 
 #checkout{
