@@ -26,13 +26,14 @@ for (i = 0; i < coll.length; i++) {
 
 
 const firebaseConfig2 = {
-    apiKey: "AIzaSyD8THmhiu-yyHXJZVy2BbsL1Vvep7cqds8",
-    authDomain: "dim-sim-s-website.firebaseapp.com",
-    databaseURL: "https://dim-sim-s-website-default-rtdb.firebaseio.com",
-    projectId: "dim-sim-s-website",
-    storageBucket: "dim-sim-s-website.appspot.com",
-    messagingSenderId: "1079766995401",
-    appId: "1:1079766995401:web:96f174fc09f1a09b2f9818"
+    apiKey: "AIzaSyBV4nXWhsM0VRWUTUXpb5C3UesQgk9eOuA",
+    authDomain: "dimsims-webste.firebaseapp.com",
+    databaseURL: "https://dimsims-webste-default-rtdb.firebaseio.com",
+    projectId: "dimsims-webste",
+    storageBucket: "dimsims-webste.appspot.com",
+    messagingSenderId: "1048491640592",
+    appId: "1:1048491640592:web:b26493fb73ac7af8fbc795",
+    measurementId: "G-JK4SQYC925"
 
 };
 
