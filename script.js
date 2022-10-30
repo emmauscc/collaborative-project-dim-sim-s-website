@@ -39,7 +39,6 @@ const firebaseConfig2 = {
 
 };
 
-
 firebase.initializeApp(firebaseConfig2);
 
 var modal = document.getElementById("myModal");
@@ -333,6 +332,44 @@ function doFilters(){
 }
 
 
+initaliseLocalStorage = () => {
+    if(localStorage.getItem('cart') == null){
+        localStorage.setItem('cart', JSON.stringify([]))
+        console.log('Local Storage Ready.')
+    }
+}
+
+initaliseLocalStorage()
+
+
+getCartData = () => {
+    return JSON.parse(localStorage.getItem('cart'))
+}
+
+addToCart = (element) => {
+    let parent_div = $(element).parent().parent()
+    let product_id = $(parent_div).attr('product_id')
+    let selected_size = document.getElementById('size').value
+
+    let product_info = firebase.database().ref('data/products/'+product_id)
+    product_info.on('value',snapshot => {
+        var product = snapshot.val()
+        product.carted_size = selected_size
+        let cart_data = getCartData()
+
+        cart_data.push(product)
+        localStorage.setItem('cart',JSON.stringify(cart_data))
+
+    })
+
+  
+
+    alert('Product Added To Cart!')
+
+
+}
+
+
 
 function generateModal(clickedID){
     
@@ -372,7 +409,7 @@ function generateModal(clickedID){
         </div>
 
         <div class="bottomRightContainer">
-          <button class="CartButton" type="button">Add to Cart</button>
+          <button class="CartButton" type="button" onclick="addToCart(this)">Add to Cart</button>
 
         </div>`)
 
@@ -412,7 +449,7 @@ function generateModal(clickedID){
         </div>
 
         <div class="bottomRightContainer">
-          <button class="CartButton" type="button">Add to Cart</button>
+          <button class="CartButton" type="button" onclick="addToCart(this)">Add to Cart</button>
 
         </div>
         `)
