@@ -213,6 +213,7 @@ input[type="checkbox"]:checked{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    color: #30476c;
 }
 
 .productBrand{
@@ -238,6 +239,23 @@ input[type="checkbox"]:checked{
     width: 100%;
 }
 
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -250,9 +268,10 @@ input[type="checkbox"]:checked{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     overflow: hidden;
-  }
-  
-  .modal-content {
+    animation: fadeIn 1s;
+}
+
+.modal-content {
     background-color: #fefefe;
     margin: 3.5% auto; /* 15% from the top and centered */
     padding: 2vw;
@@ -261,23 +280,21 @@ input[type="checkbox"]:checked{
     height:80vh;
     overflow: hidden;
     border-radius: 40px;
-
-  }
+}
   
-  /* The Close Button */
-  .close {
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
   
   .close:hover,
   .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
 .productInformation > img{
     display: flex;
@@ -303,6 +320,7 @@ input[type="checkbox"]:checked{
     font-size: 2.2vw;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
+    color: #30476c;
 }
 
 .Brand{
@@ -317,6 +335,7 @@ input[type="checkbox"]:checked{
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 400;
     margin-bottom: 1vh;
+    color: #666666;
 }
 
 .Available{

@@ -68,9 +68,9 @@ cart_items.forEach(cart_item => {
 
             <p class="product-remove" onclick="removeProduct(this)">
 
-                <i class="fa fa-trash" aria-hidden="true"></i>
+                
 
-                <span class="remove" >Remove</span>
+                <span class="remove svg" >&#xF2ED Remove</span>
 
             </p>
 
