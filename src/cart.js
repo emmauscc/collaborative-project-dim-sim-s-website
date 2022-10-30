@@ -1,3 +1,12 @@
+$( document ).ready(function() {
+    console.log(CART_TOTAL)
+    if(CART_TOTAL == 0){
+        $("#checkout").removeAttr("href");
+        $("#checkout").css("background-color", "#aaaaaa")
+        $("#checkout").css("color", "black")
+        $("#checkout").css("opacity", "0.6")
+    }
+});
 
 
 
@@ -74,5 +83,5 @@ cart_items.forEach(cart_item => {
 
 
 
-document.getElementById('total_price').innerHTML = CART_TOTAL
+document.getElementById('total_price').innerHTML = "$"+CART_TOTAL
 document.getElementById('item_num').innerHTML = cart_items.length

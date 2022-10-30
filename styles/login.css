@@ -8,7 +8,7 @@ body{
 #title{
     display: flex;
     justify-content: center;
-    background-color: #e33054;
+    background-color: #19325c;
     font-size: 1vw;
     height: 10vh;
     line-height: 4vh;
@@ -21,7 +21,7 @@ body{
 h1{
     font-family: 'Mulish', sans-serif;
     letter-spacing: .5vw;
-    color: #19325c;
+    color: #e33054;
 }
 
 #container{
@@ -124,7 +124,7 @@ button:hover{
     position: absolute;
     top: 1.2vw;
     left: 1.2vw;
-    color: black;
+    color: #e33054;
     height: 5vh;
     width: 5vh;
     font-size: 2vw;

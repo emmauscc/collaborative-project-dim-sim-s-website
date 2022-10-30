@@ -42,6 +42,29 @@ body{
     color: #e33054;
 }
 
+#cart{
+    position: absolute;
+    top: 2%;
+    right: 8%;
+    height: 5.5vh;
+    width: 3vw;
+    font-size: 2.3vw;
+    background-color: #19325c;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #e33054;
+    text-decoration: none;
+}
+
+#cart:visited{
+    color: #e33054;
+}
+
+#cart:hover{
+    color: #e33054;
+}
+
 h1{
     font-family: 'Mulish', sans-serif;
     letter-spacing: .7vw;
@@ -164,6 +187,10 @@ input[type="checkbox"]:checked{
     background-color: white;
     position: relative;
     border-radius: 15px;
+}
+
+.product:hover{
+    transform: scale(1.02);
 }
 
 .productImg{
