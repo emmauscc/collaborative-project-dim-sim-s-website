@@ -227,7 +227,7 @@ function doFilters(){
     if(filteredProducts.length > 0){
         if($('input[name="radios"]:checked').val() == "New"){
             console.log(_.sortBy(filteredProducts, ['release_date']))
-            filteredProducts = _.sortBy(filteredProducts, ['release_date'])
+            filteredProducts = _.sortBy(filteredProducts, ['release_date']).reverse();
     
         }else if($('input[name="radios"]:checked').val() == "PriceL"){
     
