@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+body{
+    margin: 0;
+    max-width: 100%;
+	overflow-x: hidden;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    background-color: #19325c;
+    font-size: 1vw;
+    height: 10vh;
+    line-height: 4vh;
+}
+
+
+.svg{
+    font-family: Arial, FontAwesome;
+}
+
+#login{
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    height: 5.5vh;
+    width: 3vw;
+    font-size: 2.3vw;
+    background-color: #e33054;
+    border: 1px solid #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: black;
+}
+
+#login:visited{
+    color: black;
+}
+
+#login:hover{
+    color: black;
+}
+
+#title{
+    font-family: 'Mulish', sans-serif;
+    letter-spacing: .7vw;
+    color: #e33054;
+}
+
+#container{
+}
+
+#sidebar{
+    width: 20vw;
+    height: 90vh;
+    float: left;
+    background-color: #aaaaaa;
+}
+
+#back{
+    position: absolute;
+    top: 1.2vw;
+    left: 1.2vw;
+    color: #e33054;
+    height: 5vh;
+    width: 5vh;
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    line-height: 5.5vh;
+    text-decoration: none;
+}
+
+.checkoutCart{
+    width: 30vw;
+    height: 100vh;
+    float: left;
+    background-color: #5e708d;
+    overflow: hidden;
+
+}
+
+.checkoutProduct{
+    color: white;
+    margin-top: 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    height: 30px;
+    width: 30vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+    background-color: #5e708d;
+    position: relative;
+
+
+}
+#subtotal{
+
+    color: white;
+    margin-top: 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 30vw;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+    background-color: #5e708d;
+    position: relative;
+    font-size: 24px;
+    font-weight: bolder;
+    border-top: 1px solid white;
+    line-height: 50px;
+
+}
+
+#cartTitle{
+    font-family: 'Roboto Condensed', sans-serif;
+	font-size: 2.5em;
+    text-decoration: #5e708d underline;
+    color: white;
+	position: relative;
+	left: 1%;
+	margin: 0;
+	margin-top: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+    width: 30vw;
+    height: 50px;
+    line-height: 25px;
+}
+
+.headings{
+    font-family: 'Roboto Condensed', sans-serif;
+	font-size: 2.5em;
+    text-decoration: #5e708d underline;
+    color: black;
+	position: relative;
+	left: 1%;
+	margin: 0;
+	margin-top: 10px;
+    margin-bottom: 5px; 
+    width: 70vw;
+    height: 30px;
+    line-height: 25px;
+
+}
+
+#checkout{
+    width: 70vw;
+}
+
+.input{
+    margin-top: 1vh;
+    width: 15vw;
+    height: 5vh;
+    font-size: 1vw;
+    line-height: 3vh;
+    margin-left: 5px;
+}
+
+#mobile{
+    width: 12vw;
+}
+
+#email{
+    width: 20vw;
+}
+
+#adress{
+    width: 25vw;
+}
+
+#aptnum{
+    width: 25vw;
+}
+#postCode{
+    width: 8vw;
+}
+#card{
+    width: 25vw;
+}
+#cardExp{
+    width: 6vw;
+}
+#ccv{
+    width: 3vw;
+}
+
